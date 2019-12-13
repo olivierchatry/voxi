@@ -58,19 +58,14 @@ namespace vox {
     }
 
     char magic[4];
-
-    if (!input.read(magic, 4)) { 
-      return false; 
-    }
+    READ(input, magic);
     
     if (!cmp_id(magic, "VOX ")) {
       return false;
     }
 
     int version;
-    if (!read(input, version)) {
-      return false;
-    }
+    READ(input, version);
     
     if (version != 150) {
       return false;
