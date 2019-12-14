@@ -1,3 +1,0 @@
-[submodule "externals/loguru"]
-	path = externals/loguru
-	url = https://github.com/emilk/loguru.git
