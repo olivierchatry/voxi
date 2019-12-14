@@ -1,5 +1,3 @@
-#include "externals/loguru/loguru.hpp"
-
 #include <fstream>
 #include <cstring>
 #include "vox.h"
@@ -81,7 +79,6 @@ namespace vox {
       } else if (cmp_id(chunk.id, "PACK")) {
         int num_models;
         READ(input, num_models);
-        LOG_F(INFO, "VOX number of models %d", num_models);
         vox.models.reserve(num_models);
       } else if (cmp_id(chunk.id, "SIZE")) {
         vox.models.push_back(model_t());
@@ -89,7 +86,6 @@ namespace vox {
         READ(input, model.size_x);
         READ(input, model.size_y);
         READ(input, model.size_z);
-        LOG_F(INFO, "VOX size %d %d %d", model.size_x, model.size_y, model.size_z);
       } else if (cmp_id(chunk.id, "XYZI")) {
         auto& model = vox.models.back();
         int num_voxels;
@@ -117,7 +113,6 @@ namespace vox {
         }
       }
     }
-    LOG_F(INFO, "VOX done.");
     return true;
   }
 
